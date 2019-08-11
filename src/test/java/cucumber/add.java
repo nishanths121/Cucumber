@@ -22,7 +22,7 @@ public class add {
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\admin\\eclipse-workspace\\nishanth\\dri\\chromedriver.exe");
 		 driver=new ChromeDriver();
 		 driver.get("http://demo.guru99.com/telecom/");
-		 //driver.manage().window().maximize();
+		 driver.manage().window().maximize();
 		 driver.findElement(By.xpath("((//a[text()='Add Customer'])[1])")).click();
 		 driver.findElement(By.xpath("//label[text()='Done']")).click();
 	}
