@@ -17,12 +17,12 @@ import io.cucumber.datatable.DataTable;
 public class add {
 	static WebDriver driver;
 	
-	@Given("User launch the browser")
-	public void user_launch_the_browser() {	
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\admin\\eclipse-workspace\\nishanth\\dri\\chromedriver.exe");
-		 driver=new ChromeDriver();
+	@Given("user launch the browser")
+	public void user_launch_the_browser() {
+	     System.setProperty("webdriver.chrome.driver","C:\\Users\\admin\\eclipse-workspace\\nishanth\\dri\\chromedriver.exe");
+		driver=new ChromeDriver();
 		 driver.get("http://demo.guru99.com/telecom/");
-		 driver.manage().window().maximize();
+		// driver.manage().window().maximize();
 		 driver.findElement(By.xpath("((//a[text()='Add Customer'])[1])")).click();
 		 driver.findElement(By.xpath("//label[text()='Done']")).click();
 	}
@@ -38,6 +38,19 @@ public class add {
 	driver.findElement(By.xpath("//textarea[@id='message']")).sendKeys(CusData.get("address"));
 	driver.findElement(By.id("telephoneno")).sendKeys(CusData.get("phno"));
 	driver.findElement(By.xpath("//input[@name='submit']")).click();
+
+	}
+	@When("user clcik the add customer{string},{string},{string},{string},{string}")
+	public void user_clcik_the_add_customer(String A,String B,String C,String D,String E) {
+		
+	//	System.out.println("when");
+		
+		driver.findElement(By.id("fname")).sendKeys(A);
+		driver.findElement(By.id("lname")).sendKeys(B);
+		driver.findElement(By.id("email")).sendKeys(C);
+		driver.findElement(By.xpath("//textarea[@id='message']")).sendKeys(D);
+		driver.findElement(By.id("telephoneno")).sendKeys(E);
+		driver.findElement(By.xpath("//input[@name='submit']")).click();
 
 	}
 
